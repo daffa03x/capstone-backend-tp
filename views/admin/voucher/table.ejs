@@ -1,0 +1,27 @@
+<table id="example2" class="table table-bordered table-striped text-center">
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>Nama Voucher</th>
+        <th>Jumlah Koin</th>
+        <th>Harga Koin</th>
+        <th>Aksi</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% for(let i = 0;i<voucher.length;i++){ %>
+            <tr>
+                <td><%= i + 1 %></td>
+                <td><%= voucher[i].name %></td>
+                <td><%= voucher[i].status %></td>
+                <td>Rp.<%= nominal[i].price %></td>
+                <td>
+                    <form action="/nominal/delete/<%=nominal[i]._id%>?_method=DELETE" method="POST">
+                        <a href="/nominal/edit/<%=nominal[i]._id%>" class="btn btn-warning text-white"><i class="nav-icon fas fa-pencil-alt"></i>&ensp;Ubah</a>
+                        <button class="btn btn-danger"><i class="nav-icon fas fa-trash"></i>&ensp;Hapus</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+    </table>
