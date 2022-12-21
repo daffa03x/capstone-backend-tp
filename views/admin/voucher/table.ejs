@@ -2,9 +2,10 @@
     <thead>
     <tr>
         <th>No</th>
-        <th>Nama Voucher</th>
-        <th>Jumlah Koin</th>
-        <th>Harga Koin</th>
+        <th>Nama Game</th>
+        <th>Kategori</th>
+        <th>Nominal</th>
+        <th>Status</th>
         <th>Aksi</th>
     </tr>
     </thead>
@@ -13,11 +14,37 @@
             <tr>
                 <td><%= i + 1 %></td>
                 <td><%= voucher[i].name %></td>
-                <td><%= voucher[i].status %></td>
-                <td>Rp.<%= nominal[i].price %></td>
+                <td><%= voucher[i]?.category?.name ?? '-' %></td>
                 <td>
-                    <form action="/nominal/delete/<%=nominal[i]._id%>?_method=DELETE" method="POST">
-                        <a href="/nominal/edit/<%=nominal[i]._id%>" class="btn btn-warning text-white"><i class="nav-icon fas fa-pencil-alt"></i>&ensp;Ubah</a>
+                    <% voucher[i].nominals.forEach(nominal => { %>
+                        <span class="badge badge-info">
+                            <%= nominal.coinQuantity %> <%= nominal.coinName %>
+                        </span>
+                    <% }) %>
+                </td>
+                <td>
+                    <% if(voucher[i].status === 'Y'){ %>
+                        <span class="badge badge-success">
+                            Aktif
+                        </span>
+                    <% }else{ %>
+                        <span class="badge badge-danger">
+                            Tidak Aktif
+                        </span>
+                    <% } %>
+                </td>
+                <td>
+                    <form action="" style="display:inline-block ;">
+                        <button class="btn btn-primary"><i class="nav-icon fas fa-folder"></i>&ensp;
+                            <% if(voucher[i].status === 'Y'){ %>
+                                    Non Aktif
+                            <% }else{ %>
+                                    Aktifkan
+                            <% } %>
+                        </button>
+                    </form>
+                    <form style="display:inline-block ;" action="/voucher/delete/<%=voucher[i]._id%>?_method=DELETE" method="POST">
+                        <a href="/voucher/edit/<%=voucher[i]._id%>" class="btn btn-warning text-white"><i class="nav-icon fas fa-pencil-alt"></i>&ensp;Ubah</a>
                         <button class="btn btn-danger"><i class="nav-icon fas fa-trash"></i>&ensp;Hapus</button>
                     </form>
                 </td>
