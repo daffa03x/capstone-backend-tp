@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-const {urlDb} = require('../config');
+const mongoose = require("mongoose");
+const { urlDb } = require("../config");
 
 mongoose.connect(urlDb, {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true
-})
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-const db = mongoose.connection
+const db = mongoose.connection;
 
-module.exports = db
+module.exports = db;
