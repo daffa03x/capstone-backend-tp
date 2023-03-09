@@ -18,7 +18,7 @@
                 <td>
                     <% voucher[i].nominals.forEach(nominal => { %>
                         <span class="badge badge-info">
-                            <%= nominal.coinQuantity %> <%= nominal.coinName %>
+                            Rp.<%= nominal.price %> - <%= nominal.coinQuantity %> <%= nominal.coinName %>
                         </span>
                     <% }) %>
                 </td>
@@ -34,7 +34,7 @@
                     <% } %>
                 </td>
                 <td>
-                    <form action="" style="display:inline-block ;">
+                    <form action="/voucher/status/<%= voucher[i]._id %>?_method=PUT" method="POST" style="display:inline-block ;">
                         <button class="btn btn-primary"><i class="nav-icon fas fa-folder"></i>&ensp;
                             <% if(voucher[i].status === 'Y'){ %>
                                     Non Aktif
