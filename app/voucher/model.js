@@ -1,35 +1,40 @@
-const { default: mongoose } = require('mongoose')
-const moogose = require('mongoose')
-let voucherSchema = moogose.Schema({
+const { default: mongoose } = require("mongoose");
+const moogose = require("mongoose");
+let voucherSchema = moogose.Schema(
+  {
     name: {
-        type: String,
-        require: [true,'Nama game harus diisi']
+      type: String,
+      require: [true, "Nama game harus diisi"],
     },
 
     status: {
-        type: String,
-        enum: ['Y','N'],
-        default: 'Y'
+      type: String,
+      enum: ["Y", "N"],
+      default: "Y",
     },
 
     thumbnail: {
-        type: String
+      type: String,
     },
 
     category: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
     },
 
-    nominals: [{
+    nominals: [
+      {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Nominal'
-    }],
+        ref: "Nominal",
+      },
+    ],
 
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }
-})
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  },
+  { timestamp: true }
+);
 
-module.exports = moogose.model('Voucher', voucherSchema)
+module.exports = moogose.model("Voucher", voucherSchema);
