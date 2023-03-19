@@ -1,9 +1,12 @@
-const moogose = require('mongoose')
-let categorySchema = moogose.Schema({
+const moogose = require("mongoose");
+let categorySchema = moogose.Schema(
+  {
     name: {
-        type: String,
-        required: [true, 'nama kategori harus diisi']
-    }
-})
+      type: String,
+      required: [true, "nama kategori harus diisi"],
+    },
+  },
+  { timestamp: true }
+);
 
-module.exports = moogose.model('Category', categorySchema)
+module.exports = moogose.model("Category", categorySchema);
