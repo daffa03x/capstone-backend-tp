@@ -5,7 +5,7 @@ let bankSchema = moogose.Schema(
       type: String,
       require: [true, "Nama Pemilik Harus Diisi"],
     },
-    nameBank: {
+    bankName: {
       type: String,
       require: [true, "Nama Bank Harus Diisi"],
     },
