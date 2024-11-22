@@ -12,7 +12,7 @@ module.exports = {
       res.render("admin/category/view_category", {
         category,
         alert,
-        name: req.session.user.name,
+        // name: req.session.user.name,
         title: "Halaman Category",
       });
     } catch (err) {
@@ -24,7 +24,7 @@ module.exports = {
   viewCreate: async (req, res) => {
     try {
       res.render("admin/category/create", {
-        name: req.session.user.name,
+        // name: req.session.user.name,
         title: "Halaman Tambah Category",
       });
     } catch (err) {
@@ -57,7 +57,7 @@ module.exports = {
 
       res.render("admin/category/edit", {
         category,
-        name: req.session.user.name,
+        // name: req.session.user.name,
         title: "Halaman Ubah Category",
       });
     } catch (err) {
